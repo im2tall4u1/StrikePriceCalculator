@@ -1,0 +1,32 @@
+def one_or_two_year_position_calc():
+    fifty_two_wk_high = input('Enter 52 week high: ')
+    current_price = int(input('Enter current price of stock or ETF: '))
+    performance = int(input('Performance (in dollar amount) of contract: '))
+
+    high_end_strike_price = performance / 1.5 + current_price
+    low_end_strike_calc = high_end_strike_price * .10
+    low_end_strike_price = high_end_strike_price - low_end_strike_calc
+    strike_average = high_end_strike_price + low_end_strike_price / 2
+    print('Strike Range: ' + str(low_end_strike_price) + ' to ' + str(high_end_strike_price))
+    print('Strike Average: ' + str(strike_average))
+
+
+def two_year_plus_position():
+    fifty_two_wk_high = input('Enter 52 week high: ')
+    current_price = int(input('Enter current price of stock or ETF: '))
+    performance = int(input('Performance (in dollar amount) of contract: '))
+
+    high_end_strike_price = performance / 1.5 + current_price
+    low_end_strike_calc = high_end_strike_price * .20
+    low_end_strike_price = high_end_strike_price - low_end_strike_calc
+    strike_average = high_end_strike_price + low_end_strike_price / 2
+    print('Strike Range: ' + str(low_end_strike_price) + ' to ' + str(high_end_strike_price))
+    print('Strike Average: ' + str(strike_average))
+
+
+if __name__ == '__main__':
+    position_type = int(input("Is this a 1-2 year position or 2 plus year position? "))
+    if position_type == 1 or 2:
+        one_or_two_year_position_calc()
+    if position_type > 2:
+        two_year_plus_position()
